@@ -22,10 +22,10 @@ public class AuthController {
         this.authResource = authResource;
     }
 
-    @RequestMapping(method = POST, value = "/notifier", consumes = "application/json", produces = "application/json")
+    @RequestMapping(method = POST, value = "/auth", consumes = "application/json", produces = "application/json")
     public ResponseDto createUser(@RequestBody AuthDto authDto) {
 
-        checkIfNullOrEmptyParameter(authDto.getAuthId(), "FirebaseId is not provided (null) or empty");
+        checkIfNullOrEmptyParameter(authDto.getAuthId(), "AuthId is not provided (null) or empty");
 
         authResource.saveAuth(authDto);
         return getHttpResponse("success", 200);
